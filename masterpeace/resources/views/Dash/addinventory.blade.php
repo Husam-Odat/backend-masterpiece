@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-   Add category
+   Add inventory
  @endsection
 
  @section('content')
@@ -33,10 +33,10 @@
                         {{-- <div class="form-group">
                             <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
                         </div> --}}
-                        <div class="form-group">	
+                        {{-- <div class="form-group">	
                             <input type="text" class="form-input" name="description" id="description" placeholder="Description"/>
                           
-                        </div>
+                        </div> --}}
                         {{-- <div class="form-group">	
                             <input type="text" class="form-input" name="password" id="password" placeholder="price"/>
                            

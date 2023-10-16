@@ -1,47 +1,52 @@
 @extends('Dash.Master')
 
- @section('Title')
+@section('Title')
     Dashbored
- @endsection
+@endsection
 
- @section('content')
+@section('content')
+    <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <table class="table">
 
- <div class="container-xl">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="color: rgb(9, 9, 66);">UserName</th>
+                            <th style="color: rgb(9, 9, 66);">payments.amount</th>
+                            <th style="color: rgb(9, 9, 66);">payments.status</th>
+                            <th style="color: rgb(9, 9, 66);">payments.provider</th>
+                            <th style="color: rgb(9, 9, 66);">shipments.country</th>
+                            <th style="color: rgb(9, 9, 66);">shipments.state</th>
+                            <th style="color: rgb(9, 9, 66);">shipments.postalCode</th>
+                            <th style="color: rgb(9, 9, 66);">products.name</th>
+                            <th style="color: rgb(9, 9, 66);">products.SKU</th>
+                            <th style="color: rgb(9, 9, 66);">products.price</th>
+                            <th style="color: rgb(9, 9, 66);">products.weight</th>
 
-                <thead>
-                    <tr>
-                        <th style="color: rgb(9, 9, 66);">User</th>
-                        <th style="color: rgb(9, 9, 66);">Email-user</th>		
-                        <th style="color: rgb(9, 9, 66);">Phone-user</th>					
-                        <th style="color: rgb(9, 9, 66);">Address-user</th>	
-                        <th style="color: rgb(9, 9, 66);">volunteer_name</th>	
-                        <th style="color: rgb(9, 9, 66);">Quntity</th>
-                      
-                        {{-- <th style="color: rgb(9, 9, 66);">&nbsp;</th> --}}
-                    </tr>
-                </thead>
-                <tbody>
+                            {{-- <th style="color: rgb(9, 9, 66);">&nbsp;</th> --}}
+                        </tr>
+                    </thead>
+                    <tbody>
 
-                    @foreach ($users as  $user)
-                    <tr>
-                        <td>{{ $user->name}}</td>
-                        <td>{{ $user->email}}</td>
-                        <td>{{ $user->number}}</td>
-                        <td>{{ $user->location}}</td>
-                        <td>{{ $user->volunteer_name}}</td>
-                        <td>{{ $user->qty}}</td>
-                    </tr>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td>{{ $user->username }}</td>
+                                <td>{{ $user->amount }}</td>
+                                <td>{{ $user->status }}</td>
+                                <td>{{ $user->provider }}</td>
+                                <td>{{ $user->country }}</td>
+                                <td>{{ $user->postalCode }}</td>
+                                <td>{{ $user->total }}</td>
+                                <td>{{ $user->SKU }}</td>
+                                <td>{{ $user->price }}</td>
+                                <td>{{ $user->weight }}</td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
 
-                    @endforeach
-                </tbody>
-            </table>
-         
+            </div>
         </div>
     </div>
-</div>
- @endsection
-
-
+@endsection

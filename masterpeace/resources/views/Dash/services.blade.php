@@ -64,7 +64,10 @@
                     @foreach ($sercvvolnteer as  $sercvvolnteer)
                     <tr>
                         
-                        <td><a href="#"><img src="/images/{{$sercvvolnteer->img }}" width="100px" height="100px" alt="Avatar"></a></td>              
+                        <td><a href="#"><img src="/images/{{$sercvvolnteer->img }}" width="100px" height="100px" alt="img"></a>              
+                        <a href="#"><img src="/images/{{$sercvvolnteer->img1 }}" width="100px" height="100px" alt="img1"></a>              
+                        <a href="#"><img src="/images/{{$sercvvolnteer->img2 }}" width="100px" height="100px" alt="img2"></a>              
+                        <a href="#"><img src="/images/{{$sercvvolnteer->img3 }}" width="100px" height="100px" alt="img3"></a></td>              
                         <td>{{ $sercvvolnteer->name}}</td>
                         <td>
                             <div class="description-preview">

@@ -1,8 +1,13 @@
+@extends('layouts.master')
+@section('title', 'index')
+
+@section('content')
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <title>Single Product</title>
+    {{-- <title>Single Product</title>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Colo Shop Template">
@@ -12,16 +17,16 @@
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
     <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-    <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css">
-    <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
+    <link rel="stylesheet" href="plugins/themify-icons/themify-icons.css"> --}}
+    {{-- <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css"> --}}
     <link rel="stylesheet" type="text/css" href="styles/single_styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/single_responsive.css">
+    {{-- <link rel="stylesheet" type="text/css" href="styles/single_responsive.css"> --}}
 
 
 
-    <link rel="stylesheet" type="text/css" href="stylesheets/style1.css">
+    {{-- <link rel="stylesheet" type="text/css" href="stylesheets/style1.css"> --}}
 
-    <style>
+    {{-- <style>
         .product_price {
             color: rgb(130, 130, 239);
         }
@@ -189,7 +194,7 @@
                     <li class="menu_item"><a href="#">contact</a></li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
 
         <div class="container single_product_container">
             <div class="row">
@@ -412,7 +417,7 @@
 
             </div>
 
-            <!-- Benefit -->
+            {{-- <!-- Benefit -->
 
             <div class="benefit">
                 <div class="container">
@@ -455,9 +460,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <!-- Newsletter -->
+            {{-- <!-- Newsletter -->
 
             <div class="newsletter">
                 <div class="container">
@@ -572,16 +577,17 @@
 
         </div>
 
-    </div>
+    </div> --}}
 
-    <script src="js/jquery-3.2.1.min.js"></script>
+    {{-- <script src="js/jquery-3.2.1.min.js"></script>
     <script src="styles/bootstrap4/popper.js"></script>
     <script src="styles/bootstrap4/bootstrap.min.js"></script>
     <script src="plugins/Isotope/isotope.pkgd.min.js"></script>
     <script src="plugins/OwlCarousel2-2.2.1/owl.carousel.js"></script>
     <script src="plugins/easing/easing.js"></script>
     <script src="plugins/jquery-ui-1.12.1.custom/jquery-ui.js"></script>
-    <script src="js/single_custom.js"></script>
-</body>
+    <script src="js/single_custom.js"></script> --}}
+{{-- </body>
 
-</html>
+</html> --}}
+@endsection

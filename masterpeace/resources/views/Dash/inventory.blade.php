@@ -60,18 +60,20 @@
                                         {{-- <th style="color: rgb(9, 9, 66);">Image</th> --}}
                                         <th style="color: rgb(9, 9, 66);">Name</th>						
                                         <th style="color: rgb(9, 9, 66);">quantity</th>
+                                        {{-- <th style="color: rgb(9, 9, 66);">price</th> --}}
                                         <th style="color: rgb(9, 9, 66);">Action</th>
                                         <th style="color: rgb(9, 9, 66);">&nbsp;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
 
-                                    @foreach ($allcat as  $allcat)
+                                    @foreach ($allinv as  $allinv)
                                     <tr>
-                                        <td>{{ $allcat->id}}</td>
+                                        <td>{{ $allinv->id}}</td>
                                         {{-- <td><a href="#"><img src="/images/{{ $allcat->img }}" width="100px" height="100px" alt="Avatar"></a></td>               --}}
-                                        <td>{{ $allcat->name}}</td>
-                                        <td>{{ $allcat->quantity}}</td>
+                                        <td>{{ $allinv->name}}</td>
+                                        <td>{{ $allinv->quantity}}</td>
+                                        
                                         {{-- <td>
                                             <div class="description-preview">
                                                 {{ substr($allcat->description, 0, 100) }} <!-- Display first 50 characters -->
@@ -84,11 +86,11 @@
                                         </td> --}}
                                         <td>
                                             <div style="display: grid; grid-template-columns: auto auto;">
-                                          <button class="btn me-2 update-btn"><a href="{{ route('category.edit',$allcat->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
-                                            <form id="delete-form-{{ $allcat->id }}" method="POST" action="{{ route('category.destroy', $allcat->id) }}">
+                                          <button class="btn me-2 update-btn"><a href="{{ route('inventory.edit',$allinv->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
+                                            <form id="delete-form-{{ $allinv->id }}" method="POST" action="{{ route('inventory.destroy', $allinv->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button  type="submit" class="btn btn-danger delete-button" data-delete-id="{{ $allcat->id }}">
+                                                <button  type="submit" class="btn btn-danger delete-button" data-delete-id="{{ $allinv->id }}">
                                                     <i class="fa fa-trash text-white" style="font-size: 17px"></i>
                                                 </button> 
                                             </form>

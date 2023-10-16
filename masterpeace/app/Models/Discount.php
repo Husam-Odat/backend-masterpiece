@@ -10,7 +10,7 @@ class Discount extends Model
     use HasFactory;
     public function product()
     {
-        $this->belongsTo(Product::class, 'id', 'product_id');
+        $this->belongsTo(Product::class, 'id', 'productId');
     }
     protected $fillable = [
         'name',

@@ -10,13 +10,13 @@ class ProductCategory extends Model
     use HasFactory;
     public function product()
     {
-        $this->belongsTo(Product::class, 'id', 'product_id');
+        $this->belongsTo(Product::class, 'id', 'productId');
     }
     protected $fillable = [
         
         'name',
         'description',
-        'phone',
+        // 'phone',
         'img'
         
     ];

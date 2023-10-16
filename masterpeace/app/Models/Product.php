@@ -31,7 +31,7 @@ class Product extends Model
     }
     public function cart()
     {
-        $this->hasMany(cart::class, 'id', 'product_id');
+        return $this->hasMany(cart::class);
     }
     public function wishlist()
     {
@@ -45,9 +45,13 @@ class Product extends Model
         'SKU',
         'categoryId',
         'img',
+        'img1',
+        'img2',
+        'img3',
         'inventoryId',
         'discountId',
         'price',
+        'weight'
 
     ];
 }

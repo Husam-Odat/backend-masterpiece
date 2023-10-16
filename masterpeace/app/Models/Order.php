@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
+    protected $fillable = [
+        'userId',
+        
+        'quantity',
+        'total',
+        'paymentId',
+        'orderProduct_Id',
+        'shipmentId'
+    ];
     use HasFactory;
     public function shipment()
     {
@@ -16,4 +25,5 @@ class Order extends Model
     {
         $this->hasMany(Payment::class, 'id', 'payment_id');
     }
+  
 }

@@ -1,82 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layouts.master')
+@section('title', 'checkout')
 
-<head>
-    <title>Colo Shop Categories</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Colo Shop Template">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap4/bootstrap.min.css">
-    <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/owl.theme.default.css">
-    <link rel="stylesheet" type="text/css" href="plugins/OwlCarousel2-2.2.1/animate.css">
-    <link rel="stylesheet" type="text/css" href="plugins/jquery-ui-1.12.1.custom/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="styles/categories_styles.css">
-    <link rel="stylesheet" type="text/css" href="styles/categories_responsive.css">
-
-
-
-    <link rel="stylesheet" type="text/css" href="stylesheets/style1.css">
-
-
-    <!-- ============================================= -->
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="keywords" content="pizza, delivery food, fast food, sushi, take away, chinese, italian food">
-    <meta name="description" content="">
-    <meta name="author" content="Ansonika">
-    <title>QuickFood - Quality delivery or take away food</title>
-
+@section('content')
     <!-- Favicons-->
-    <link rel="shortcut icon" href="./cart/img/favicon.ico" type="./cart/image/x-icon">
-    <link rel="apple-touch-icon" type="image/x-icon" href="./cart/img/apple-touch-icon-57x57-precomposed.png">
+    <link rel="shortcut icon" href={{ asset('./cart/img/favicon.ico') }} type="./cart/image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href={{ asset('./cart/img/apple-touch-icon-57x57-precomposed.png') }}>
     <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
-        href="./cart/img/apple-touch-icon-72x72-precomposed.png">
+        href={{ asset('./cart/img/apple-touch-icon-72x72-precomposed.png') }}>
     <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
-        href="./cart/img/apple-touch-icon-114x114-precomposed.png">
+        href={{ asset('./cart/img/apple-touch-icon-114x114-precomposed.png') }}>
     <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
-        href="./cart/img/apple-touch-icon-144x144-precomposed.png">
+        href={{ asset('./cart/img/apple-touch-icon-144x144-precomposed.png') }}>
 
     <!-- GOOGLE WEB FONT -->
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Lato:wght@300;400;700;900&display=swap"
         rel="stylesheet">
 
     <!-- BASE CSS -->
-    <link href="./cart/css/animate.min.css" rel="stylesheet">
-    <link href="./cart/css/bootstrap.min.css" rel="stylesheet">
-    <link href="./cart/css/menu.css" rel="stylesheet">
-    <link href="./cart/css/style.css" rel="stylesheet">
-    <link href="./cart/css/responsive.css" rel="stylesheet">
-    <link href="./cart/css/elegant_font/elegant_font.min.css" rel="stylesheet">
-    <link href="./cart/css/fontello/css/fontello.min.css" rel="stylesheet">
-    <link href="./cart/css/magnific-popup.css" rel="stylesheet">
-    <link href="./cart/css/pop_up.css" rel="stylesheet">
+    <link href={{ asset('./cart/css/animate.min.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/bootstrap.min.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/menu.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/style.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/responsive.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/elegant_font/elegant_font.min.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/fontello/css/fontello.min.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/magnific-popup.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/pop_up.css') }} rel="stylesheet">
 
     <!-- Radio and check inputs -->
-    <link href="./cart/css/skins/square/grey.css" rel="stylesheet">
+    <link href={{ asset('./cart/css/skins/square/grey.css') }} rel="stylesheet">
 
     <!-- YOUR CUSTOM CSS -->
-    <link href="./cart/css/custom.css" rel="stylesheet">
+    <link href={{ asset('./cart/css/custom.css') }} rel="stylesheet">
 
-    <style>
 
-    </style>
-</head>
+    <link rel="stylesheet" type="text/css" href={{ asset('stylesheets/style1.css') }}>
 
-<body>
+    </head>
 
-    <div class="super_container-fluid">
+    <body>
 
-        <!-- Header -->
+        <div class="super_container-fluid">
 
-        <header class="header trans_300" style="top: 0px;">
+            <!-- Header -->
 
-            <!-- Top Navigation -->
+            <header class="header trans_300" style="top: 0px;">
 
+                <!-- Top Navigation -->
+                {{-- 
             <div class="top_nav">
                 <div class="container-fluid">
                     <div class="row">
@@ -127,11 +98,11 @@
      </div> -->
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-            <!-- Main Navigation -->
+                <!-- Main Navigation -->
 
-            <div class="main_nav_container">
+                {{-- <div class="main_nav_container">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12 text-right">
@@ -167,15 +138,15 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
-        </header>
+            </header>
 
-        <div class="fs_menu_overlay"></div>
+            <div class="fs_menu_overlay"></div>
 
-        <!-- Hamburger Menu -->
+            <!-- Hamburger Menu -->
 
-        <div class="hamburger_menu">
+            {{-- <div class="hamburger_menu">
             <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
             <div class="hamburger_menu_content text-right">
                 <ul class="menu_top_nav">
@@ -221,92 +192,185 @@
                     <li class="menu_item"><a href="#">contact</a></li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
 
-        <div class="container-fluid product_section_container">
-            <div class="row">
-                <div class="col product_section clearfix">
+            <div class="container-fluid product_section_container">
+                <div class="row">
+                    <div class="col product_section clearfix">
 
-                    <!-- Breadcrumbs -->
-                    <!--
-    <div class="breadcrumbs d-flex flex-row align-items-center">
-     <ul>
-      <li><a href="index.html">Home</a></li>
-      <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Home & Living</a></li>
-     </ul>
-    </div> -->
-
-
-                    <!-- End SubHeader ============================================ -->
+                        <!-- Breadcrumbs -->
+                        <!--
+        <div class="breadcrumbs d-flex flex-row align-items-center">
+         <ul>
+          <li><a href="index.html">Home</a></li>
+          <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Home & Living</a></li>
+         </ul>
+        </div> -->
 
 
+                        <!-- End SubHeader ============================================ -->
 
-                    <!-- SubHeader =============================================== -->
-                    <section class="parallax-window" id="short" data-parallax="scroll"
-                        data-image-src="./images/slider_1.1.jpg" data-natural-width="1400" data-natural-height="350">
-                        <div id="subheader">
-                            <div id="sub_content">
-                                <h1>Place your order</h1>
-                                <div class="bs-wizard row">
-                                    <div class="col-4 bs-wizard-step complete">
-                                        <div class="text-center bs-wizard-stepnum"><strong>1.</strong> Your details
+
+
+                        <!-- SubHeader =============================================== -->
+                        <section class="parallax-window" id="short" data-parallax="scroll"
+                            data-image-src="./images/slider_1.1.jpg" data-natural-width="1400" data-natural-height="350">
+                            <div id="subheader">
+                                <div id="sub_content">
+                                    <h1>Place your order</h1>
+                                    <div class="bs-wizard row">
+                                        <div class="col-4 bs-wizard-step complete">
+                                            <div class="text-center bs-wizard-stepnum"><strong>1.</strong> Your details
+                                            </div>
+                                            <div class="progress">
+                                                <div class="progress-bar"></div>
+                                            </div>
+                                            <a href="cart.html" class="bs-wizard-dot"></a>
                                         </div>
-                                        <div class="progress">
-                                            <div class="progress-bar"></div>
+                                        <div class="col-4 bs-wizard-step complete">
+                                            <div class="text-center bs-wizard-stepnum"><strong>2.</strong> Payment</div>
+                                            <div class="progress">
+                                                <div class="progress-bar"></div>
+                                            </div>
+                                            <a href="cart_2.html" class="bs-wizard-dot"></a>
                                         </div>
-                                        <a href="cart.html" class="bs-wizard-dot"></a>
-                                    </div>
-                                    <div class="col-4 bs-wizard-step complete">
-                                        <div class="text-center bs-wizard-stepnum"><strong>2.</strong> Payment</div>
-                                        <div class="progress">
-                                            <div class="progress-bar"></div>
+                                        <div class="col-4 bs-wizard-step complete">
+                                            <div class="text-center bs-wizard-stepnum"><strong>3.</strong> Finish!</div>
+                                            <div class="progress">
+                                                <div class="progress-bar"></div>
+                                            </div>
+                                            <a href="#0" class="bs-wizard-dot"></a>
                                         </div>
-                                        <a href="cart_2.html" class="bs-wizard-dot"></a>
-                                    </div>
-                                    <div class="col-4 bs-wizard-step complete">
-                                        <div class="text-center bs-wizard-stepnum"><strong>3.</strong> Finish!</div>
-                                        <div class="progress">
-                                            <div class="progress-bar"></div>
+                                    </div><!-- End bs-wizard -->
+                                </div><!-- End sub_content -->
+                            </div><!-- End subheader -->
+                        </section><!-- End section -->
+                        <!-- End SubHeader ============================================ -->
+
+                        <div id="position">
+                            <div class="container">
+                                <ul>
+                                    <li><a href="#0">Home</a></li>
+                                    <li><a href="#0">Category</a></li>
+                                    <li>Page active</li>
+                                </ul>
+                                <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i>
+                                    Search</a>
+                            </div>
+                        </div><!-- Position -->
+
+                        <!-- Content ================================================== -->
+                        <div class="container margin_60_35">
+                            <div class="row justify-content-center">
+                                <div class="col-md-6">
+                                    <div class="box_style_2">
+                                        <h2 class="inner">Order confirmed!</h2>
+                                        <div id="confirm">
+                                            <i class="icon_check_alt2"></i>
+                                            <h3>Thank you!</h3>
+                                            <p>
+                                                INVOICE #Y34XDHR <br>
+                                                Expected Arrival 22/9/2023<br>
+
+                                                USPS 234094567242423422898<br>
+                                            </p>
                                         </div>
-                                        <a href="#0" class="bs-wizard-dot"></a>
+                                        <h4>Summary</h4>
+                                        {{-- ===========================yeuseff======================= --}}
+                                        <table class="table">
+                                            <thead class="thead-primary">
+                                                <tr class="text-center">
+                                                    <th>&nbsp;</th>
+                                                    <th>&nbsp;</th>
+                                                    <th>Product name</th>
+                                                    <th>Price</th>
+                                                    <th>Quantity</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{-- @dd($cart[5]->price) --}}
+                                                @if (isset($cart))
+                                                    @foreach ($cart as $cartItem)
+                                                        <tr class="text-center">
+                                                            <td class="product-remove">
+
+                                                                <a
+                                                                    href="{{ route('pages.cart.destroy', isset($cartItem->product) ? $cartItem->product->id : $cartItem['id']) }}"><span
+                                                                        class="ion-ios-close">del</span></a>
+                                                            </td>
+                                                            <td class="image-prod">
+                                                                {{-- @dd( $cartItem['image']) --}}
+                                                                <div class="img"
+                                                                    style="background-image: url({{ isset($cartItem->product) ? asset('image/mas/img/' . $cartItem->product->image1 . '') : 'image/mas/img/' . $cartItem['image'] . '' }});">
+                                                                    {{-- {{ asset('image/mas/img/' . $item->image1 . '') }} --}}
+
+                                                                </div>
+                                                            </td>
+                                                            <td class="product-name">
+                                                                <h3>{{ isset($cartItem->product) ? $cartItem->product->name : $cartItem['productname'] }}
+                                                                </h3>
+                                                                <p>{{ isset($cartItem->product) ? $cartItem->product->Sdescription : $cartItem['shortdes'] }}
+                                                                </p>
+                                                            </td>
+
+                                                            <td class="price">
+                                                                {{ isset($cartItem->product) ? $cartItem->product->price : $cartItem['price'] }}
+                                                            </td>
+
+                                                            <td class="price">
+                                                                {{ isset($cartItem->product) ? $cartItem->product->quantity : $cartItem['quantity'] }}
+                                                            </td>
+                                                            {{-- <td class="price">
+                                                             <form action="{{ route('pages.cart.destroy',['id' =>$cartItem->id] ) }}" method="get">
+
+                            @csrf
+							<button type="submit" class="btn btn-danger">destroy</button>
+															 </form>
+                                            </td> --}}
+                                                            <td class="quantity">
+                                                                <div class="input-group mb-3">
+                                                                    <div class="quantity" style="display: flex">
+                                                                        {{-- <form action="{{ route('addQuantity', isset($cartItem->product) ? $cartItem->product->id : $cartItem['id']) }}">
+
+                                                            <a
+                                                                href="{{ route('addQuantity', isset($cartItem->product) ? $cartItem->product->id : $cartItem['id']) }}"><span
+                                                                    class="qty-minus"
+                                                                    onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;">
+                                                                    <i class="fa fa-minus"
+                                                                        aria-hidden="true"></i></span></a>
+                                                            <input type="number" class="qty-text form-control input-number"
+                                                                id="qty" step="1" min="1" max="100"
+                                                                name="quantity" value="{{ $cartItem['quantity'] }}" />
+                                                            <a
+                                                                href="{{ route('addQuantity', isset($cartItem->product) ? $cartItem->product->id : $cartItem['id']) }}"><span
+                                                                    class="qty-plus"
+                                                                    onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;">
+                                                                    <i class="fa fa-plus" aria-hidden="true"></i></span></a>
+                                                                    <input type="submit" value="update">`
+                                                        </form> --}}
+                                                                    </div>
+                                                                </div>
+                                                            </td>
+                                                            <td class="total">
+                                                                {{ $cartItem['quantity'] * (isset($cartItem->product) ? $cartItem->product->price : $cartItem['price']) }}
+                                                            </td>
+                                                        </tr><!-- END TR-->
+                                                        {{-- @endif --}}
+                                                    @endforeach
+
+
                                     </div>
-                                </div><!-- End bs-wizard -->
-                            </div><!-- End sub_content -->
-                        </div><!-- End subheader -->
-                    </section><!-- End section -->
-                    <!-- End SubHeader ============================================ -->
+                                @else
+                                    <h1>No Product Found</h1>
+                                    @endif
+                                    </tbody>
 
-                    <div id="position">
-                        <div class="container">
-                            <ul>
-                                <li><a href="#0">Home</a></li>
-                                <li><a href="#0">Category</a></li>
-                                <li>Page active</li>
-                            </ul>
-                            <a href="#0" class="search-overlay-menu-btn"><i class="icon-search-6"></i>
-                                Search</a>
-                        </div>
-                    </div><!-- Position -->
+                                    </table>
+                                    {{-- ===========================yeuseff======================= --}}
 
-                    <!-- Content ================================================== -->
-                    <div class="container margin_60_35">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6">
-                                <div class="box_style_2">
-                                    <h2 class="inner">Order confirmed!</h2>
-                                    <div id="confirm">
-                                        <i class="icon_check_alt2"></i>
-                                        <h3>Thank you!</h3>
-                                        <p>
-                                            INVOICE #Y34XDHR <br>
-                                            Expected Arrival 22/9/2023<br>
-
-                                            USPS 234094567242423422898<br>
-                                        </p>
-                                    </div>
-                                    <h4>Summary</h4>
                                     <table class="table table-striped nomargin">
-                                        <tbody>
+                                        {{-- <tbody>
                                         <tbody>
                                             <tr>
                                                 <td>
@@ -363,33 +427,33 @@
                                                 <td>
                                                     <strong class="float-right">$120</strong>
                                                 </td>
-                                            </tr>
+                                            </tr> --}}
 
-                                            <tr>
-                                                <td>
-                                                    Delivery schedule <a href="#" class="tooltip-1"
-                                                        data-placement="top" title=""
-                                                        data-original-title="Please consider 30 minutes of margin for the delivery!"><i
-                                                            class="icon_question_alt"></i></a>
-                                                </td>
-                                                <td>
-                                                    <strong class="float-right"> By 22/09/2023</strong>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="total_confirm">
-                                                    TOTAL
-                                                </td>
-                                                <td class="total_confirm">
-                                                    <span class="float-right">$2,610</span>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style="padding-left: 100px;">
-                                                    <a class="btn_full" href="checkout.html">back to home page</a>
-                                                </td>
+                                        <tr>
+                                            <td>
+                                                Delivery schedule <a href="#" class="tooltip-1"
+                                                    data-placement="top" title=""
+                                                    data-original-title="Please consider 30 minutes of margin for the delivery!"><i
+                                                        class="icon_question_alt"></i></a>
+                                            </td>
+                                            <td>
+                                                <strong class="float-right"> By 22/09/2023</strong>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="total_confirm">
+                                                TOTAL
+                                            </td>
+                                            <td class="total_confirm">
+                                                <span class="float-right">$2,610</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td style="padding-left: 100px;">
+                                                <a class="btn_full" href="checkout.html">back to home page</a>
+                                            </td>
 
-                                            </tr>
+                                        </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -400,7 +464,7 @@
                     <!-- End Content =============================================== -->
                     <!-- Benefit -->
 
-                    <div class="benefit">
+                    {{-- <div class="benefit">
                         <div class="container">
                             <div class="row benefit_row">
                                 <div class="col-lg-3 benefit_col">
@@ -444,14 +508,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
 
 
                     <!-- Newsletter -->
 
-                    <div class="newsletter">
+                    {{-- <div class="newsletter">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -475,9 +539,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                     <!-- Footer -->
-                    <footer class="footer ">
+                    {{-- <footer class="footer ">
                         <!-- <footer class="footer navbar-dark bg-dark"> -->
                         <div class="container">
                             <div class="row">
@@ -543,7 +607,7 @@
                                 </div><!-- /.col-md-3 -->
                             </div><!-- /.row -->
                         </div><!-- /.container -->
-                    </footer><!-- /.footer -->
+                    </footer><!-- /.footer --> --}}
                 </div>
 
                 <script src="js/jquery-3.2.1.min.js"></script>
@@ -572,6 +636,4 @@
                         additionalMarginTop: 80
                     });
                 </script>
-</body>
-
-</html>
+            @endsection

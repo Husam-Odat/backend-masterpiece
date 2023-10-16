@@ -5,9 +5,8 @@
 @endsection
 
 @section('content')
-
     <!-- Sale & Revenue Start -->
-   <div class="container-fluid pt-4 px-4 ">
+    <div class="container-fluid pt-4 px-4 ">
         <div class="row g-4 mt-4">
             <div class="col-sm-6 col-xl-3">
                 <div class=" rounded d-flex align-items-center justify-content-between p-4"
@@ -36,7 +35,7 @@
                     <div class="ms-3">
                         <p class="mb-2">Donation</p>
                         {{-- <h6 class="mb-0 text-dark">JOD {{ $totalPrice}}</h6> --}}
-                       
+
                     </div>
                 </div>
             </div>
@@ -51,18 +50,18 @@
                 </div>
             </div>
         </div>
-    </div> 
+    </div>
     <!-- Sale & Revenue End -->
 
 
-  
+
     <!-- Sales Chart Start -->
     <div class="container-fluid pt-4 px-4 ">
         <div class="row g-1">
             <div class="col-sm-12 col-xl-12">
                 <div class=" text-center rounded p-4 ">
                     <div class="d-flex align-items-center justify-content-between mb-4">
-                        <h6 class="mb-0 " href="" style="color: rgb(10, 10, 105);" >Jordan Donations</h6>
+                        <h6 class="mb-0 " href="" style="color: rgb(10, 10, 105);">Jordan Donations</h6>
                         <a href="" style="color: rgb(10, 10, 105);">Show All</a>
                     </div>
                     <canvas id="worldwide-sales"></canvas>
@@ -79,8 +78,9 @@
 
     <!-- Widgets Start -->
     <div class="container-fluid pt-4 px-4 mx-auto">
-       <div class="row g-4 justify-content-center"> <!-- Add justify-content-center class to center the columns horizontally -->
-           <div class="col-sm-12 col-md-6 col-xl-4">
+        <div class="row g-4 justify-content-center">
+            <!-- Add justify-content-center class to center the columns horizontally -->
+            <div class="col-sm-12 col-md-6 col-xl-4">
                 <div class="h-100  rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
                     <div class="d-flex align-items-center justify-content-between mb-2">
                         <h6 class="mb-0 " style="color: rgb(10, 10, 105);">Messages</h6>
@@ -134,30 +134,30 @@
             </div>
 
             <div class="col-sm-12 col-md-6 col-xl-4">
-           <div class="h-100  rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
-               <div class="d-flex align-items-center justify-content-between mb-4">
-                   <h6 class="mb-0 " style="color: rgb(10, 10, 105);">Calender</h6>
-                   <a href="" style="color: rgb(10, 10, 105);">Show All</a>
-               </div>
-               <div id="calender"></div>
-           </div>
-       </div>
+                <div class="h-100  rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0 " style="color: rgb(10, 10, 105);">Calender</h6>
+                        <a href="" style="color: rgb(10, 10, 105);">Show All</a>
+                    </div>
+                    <div id="calender"></div>
+                </div>
+            </div>
 
-       <div class="col-sm-12 col-md-6 col-xl-4">
-           <div class="h-100 rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
-               <div class="d-flex align-items-center justify-content-between mb-4">
-                   <h6 class="mb-0" style="color: rgb(10, 10, 105);">To Do List</h6>
-                   {{-- <a href="" style="color: rgb(10, 10, 105);">Show All</a> --}}
-               </div>
-               {{-- <form method="post" action="{{ route('todos.store') }}">
+            <div class="col-sm-12 col-md-6 col-xl-4">
+                <div class="h-100 rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
+                    <div class="d-flex align-items-center justify-content-between mb-4">
+                        <h6 class="mb-0" style="color: rgb(10, 10, 105);">To Do List</h6>
+                        {{-- <a href="" style="color: rgb(10, 10, 105);">Show All</a> --}}
+                    </div>
+                    {{-- <form method="post" action="{{ route('todos.store') }}">
                 @csrf
                 <div class="input-group">
                     <input name="todo1" class="form-control bg-transparent border-1 pt-1 " type="text" placeholder="Enter task">
                     <button type="submit" class="btn ms-1 mb-1" style="background-color: rgba(216, 233, 251, 0.786); color: rgb(10, 10, 105); height:40px;">Add</button>
                 </div>
             </form> --}}
-            {{-- @if (is_array($todos) || is_object($todos))
-            @foreach($todos as $todo)
+                    {{-- @if (is_array($todos) || is_object($todos))
+            @foreach ($todos as $todo)
             <div class="d-flex align-items-center border-bottom py-2">
                 <input class="form-check-input m-0 bg-transparent" type="checkbox" name="todo1">
                 <div class="w-100 ms-3">
@@ -173,15 +173,16 @@
             </div>
             @endforeach
         @endif  --}}
-        
-                       
-               
-              
-               
+
+
+
+
+
+
                 
-      
-              
-         
+
+
+
 
                 </div>
             </div>

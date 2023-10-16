@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\ProductInventory;
 use App\Models\ProductCategory;
 use App\Models\Volnteer;
 use Illuminate\Http\Request;
@@ -19,9 +18,9 @@ class CategoryDashController extends Controller
     public function index()
     {
 
-        $allcat = ProductInventory::all();
+        $allcat = ProductCategory::all();
         // dd($allcat);
-        return view('Dash.inventory', compact('allcat'));
+        return view('Dash.category', compact('allcat'));
     }
 
     /**
@@ -31,7 +30,7 @@ class CategoryDashController extends Controller
      */
     public function create()
     {
-        return view('Dash.addinventory');
+        return view('Dash.addCategory');
     }
 
     /**
@@ -58,7 +57,7 @@ class CategoryDashController extends Controller
             $input['img'] = "$profileImage";
         }
 
-        ProductInventory::create($input);
+        ProductCategory::create($input);
 
         return redirect()->route('category.index')
             ->with('success', 'Category created successfully.');
@@ -80,9 +79,9 @@ class CategoryDashController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductInventory $category1, $id)
+    public function show(ProductCategory $category1, $id)
     {
-        $category1  = ProductInventory::findOrFail($id);
+        $category1  = ProductCategory::findOrFail($id);
         return view('Dash.showcat')->with('category', $category1);
     }
 
@@ -92,7 +91,7 @@ class CategoryDashController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductInventory $category)
+    public function edit(ProductCategory $category)
     {
         // $data =Category::find($id);
         return view('Dash.editcatg', compact('category'));
@@ -109,7 +108,7 @@ class CategoryDashController extends Controller
     {
         $request->validate([
             'name' => 'required |max:30',
-            'quantity' => 'required |max:300',
+            'description' => 'required |max:300',
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
@@ -127,7 +126,7 @@ class CategoryDashController extends Controller
 
         $category->update($input);
 
-        return redirect()->route('inventory.index')
+        return redirect()->route('category.index')
             ->with('success', 'Category updated successfully');
 
         // $data['name'] = $request->name;
@@ -153,7 +152,7 @@ class CategoryDashController extends Controller
             // Redirect to the 'category.index' route
             return redirect()->route('category.index')->with(['cancel' => 'You have items under this category']);
         }
-        ProductInventory::destroy($id);
+        ProductCategory::destroy($id);
 
         return redirect()->route('category.index')->with(['deleted' => 'Deleted successfully']);
     }

@@ -1,4 +1,44 @@
+@extends('layouts.master')
+@section('title', 'cart2')
 
+@section('content')
+<!-- Favicons-->
+    <link rel="shortcut icon" href={{ asset('./cart/img/favicon.ico') }} type="./cart/image/x-icon">
+    <link rel="apple-touch-icon" type="image/x-icon" href={{ asset('./cart/img/apple-touch-icon-57x57-precomposed.png') }}>
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="72x72"
+        href={{ asset('./cart/img/apple-touch-icon-72x72-precomposed.png') }}>
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="114x114"
+        href={{ asset('./cart/img/apple-touch-icon-114x114-precomposed.png') }}>
+    <link rel="apple-touch-icon" type="image/x-icon" sizes="144x144"
+        href={{ asset('./cart/img/apple-touch-icon-144x144-precomposed.png') }}>
+
+    <!-- GOOGLE WEB FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Lato:wght@300;400;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- BASE CSS -->
+    <link href={{ asset('./cart/css/animate.min.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/bootstrap.min.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/menu.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/style.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/responsive.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/elegant_font/elegant_font.min.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/fontello/css/fontello.min.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/magnific-popup.css') }} rel="stylesheet">
+    <link href={{ asset('./cart/css/pop_up.css') }} rel="stylesheet">
+
+    <!-- Radio and check inputs -->
+    <link href={{ asset('./cart/css/skins/square/grey.css') }} rel="stylesheet">
+
+    <!-- YOUR CUSTOM CSS -->
+    <link href={{ asset('./cart/css/custom.css') }} rel="stylesheet">
+
+
+    <link rel="stylesheet" type="text/css" href={{ asset('stylesheets/style1.css') }}>
+
+    </head>
+
+    <body>
 
         <div class="container-fluid product_section_container">
             <div class="row">
@@ -141,7 +181,102 @@
                                 <div class="theiaStickySidebar">
                                     <div id="cart_box">
                                         <h3>Your order <i class="icon_cart_alt float-right"></i></h3>
-                                        <table class="table table_summary">
+
+                                        {{-- ==================yeuseff============================== --}}
+                                           <table class="table">
+                            <thead class="thead-primary">
+                                <tr class="text-center">
+                                    <th>&nbsp;</th>
+                                    <th>&nbsp;</th>
+                                    <th>Product name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{-- @dd($cart[5]->price) --}}
+                                @if (isset($cart))
+                                    @foreach ($cart as $cartItem)
+                                        <tr class="text-center">
+                                            <td class="product-remove">
+
+                                                <a
+												
+                                                    href="{{ route('pages.cart.destroy', isset($cartItem->product) ? $cartItem->product->id : $cartItem['id']) }}"><span
+                                                        class="ion-ios-close">del</span></a>
+                                            </td>
+                                            <td class="image-prod">
+                                                {{-- @dd( $cartItem['image']) --}}
+                                                <div class="img"
+                                                    style="background-image: url({{ isset($cartItem->product) ? asset('image/mas/img/' . $cartItem->product->image1 . '') : 'image/mas/img/' . $cartItem['image'] . '' }});">
+                                                    {{-- {{ asset('image/mas/img/' . $item->image1 . '') }} --}}
+
+                                                </div>
+                                            </td>
+                                            <td class="product-name">
+                                                <h3>{{ isset($cartItem->product) ? $cartItem->product->name : $cartItem['productname'] }}
+                                                </h3>
+                                                <p>{{ isset($cartItem->product) ? $cartItem->product->Sdescription : $cartItem['shortdes'] }}
+                                                </p>
+                                            </td>
+
+                                            <td class="price">
+                                                {{ isset($cartItem->product) ? $cartItem->product->price : $cartItem['price'] }}
+                                            </td>
+
+                                            <td class="price">
+                                                {{ isset($cartItem->product) ? $cartItem->product->quantity : $cartItem['quantity'] }}
+                                            </td>
+                                            {{-- <td class="price">
+                                                             <form action="{{ route('pages.cart.destroy',['id' =>$cartItem->id] ) }}" method="get">
+
+                            @csrf
+							<button type="submit" class="btn btn-danger">destroy</button>
+															 </form>
+                                            </td> --}}
+                                            <td class="quantity">
+                                                <div class="input-group mb-3">
+                                                    <div class="quantity" style="display: flex">
+                                                        {{-- <form action="{{ route('addQuantity', isset($cartItem->product) ? $cartItem->product->id : $cartItem['id']) }}">
+
+                                                            <a
+                                                                href="{{ route('addQuantity', isset($cartItem->product) ? $cartItem->product->id : $cartItem['id']) }}"><span
+                                                                    class="qty-minus"
+                                                                    onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty ) &amp;&amp; qty &gt; 1 ) effect.value--;return false;">
+                                                                    <i class="fa fa-minus"
+                                                                        aria-hidden="true"></i></span></a>
+                                                            <input type="number" class="qty-text form-control input-number"
+                                                                id="qty" step="1" min="1" max="100"
+                                                                name="quantity" value="{{ $cartItem['quantity'] }}" />
+                                                            <a
+                                                                href="{{ route('addQuantity', isset($cartItem->product) ? $cartItem->product->id : $cartItem['id']) }}"><span
+                                                                    class="qty-plus"
+                                                                    onclick="var effect = document.getElementById('qty'); var qty = effect.value; if( !isNaN( qty )) effect.value++;return false;">
+                                                                    <i class="fa fa-plus" aria-hidden="true"></i></span></a>
+                                                                    <input type="submit" value="update">`
+                                                        </form> --}}
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="total">
+                                                {{ $cartItem['quantity'] * (isset($cartItem->product) ? $cartItem->product->price : $cartItem['price']) }}
+                                            </td>
+                                        </tr><!-- END TR-->
+                                        {{-- @endif --}}
+                                    @endforeach
+
+
+                    </div>
+                @else
+                    <h1>No Product Found</h1>
+                    @endif
+                    </tbody>
+
+                    </table>
+
+                                        {{-- ===================yeuseff============================= --}}
+                                        {{-- <table class="table table_summary">
                                             <tbody>
                                                 <tr>
                                                     <td>
@@ -200,7 +335,7 @@
                                                     </td>
                                                 </tr>
                                             </tbody>
-                                        </table>
+                                        </table> --}}
                                         <hr>
                                         <!-- <div class="row" id="options_2">
                             <div class="col-xl-6 col-md-12 col-sm-12 col-6">
@@ -303,7 +438,7 @@
                     <!-- End Search Menu -->
                     <!-- Benefit -->
 
-                    <div class="benefit">
+                    {{-- <div class="benefit">
                         <div class="container">
                             <div class="row benefit_row">
                                 <div class="col-lg-3 benefit_col">
@@ -347,14 +482,14 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
 
 
 
                     <!-- Newsletter -->
 
-                    <div class="newsletter">
+                    {{-- <div class="newsletter">
                         <div class="container">
                             <div class="row">
                                 <div class="col-lg-6">
@@ -377,9 +512,9 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
-                    <!-- Footer -->
+                    {{-- <!-- Footer -->
                     <footer class="footer ">
                         <!-- <footer class="footer navbar-dark bg-dark"> -->
                         <div class="container">
@@ -446,7 +581,7 @@
                                 </div><!-- /.col-md-3 -->
                             </div><!-- /.row -->
                         </div><!-- /.container -->
-                    </footer><!-- /.footer -->
+                    </footer><!-- /.footer --> --}}
 
                 </div>
 
@@ -476,6 +611,7 @@
                         additionalMarginTop: 80
                     });
                 </script>
-</body>
+                @endsection
+{{-- </body>
 
-</html>
+</html> --}}

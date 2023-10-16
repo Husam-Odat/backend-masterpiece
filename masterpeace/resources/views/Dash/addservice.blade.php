@@ -82,6 +82,18 @@
                         
                             <input  name="img" type="file" class="form-control white-input" id="inputPrice">
                          </div>
+                        <div class="form-group">
+                        
+                            <input  name="img1" type="file" class="form-control white-input" id="inputPrice">
+                         </div>
+                        <div class="form-group">
+                        
+                            <input  name="img2" type="file" class="form-control white-input" id="inputPrice">
+                         </div>
+                        <div class="form-group">
+                        
+                            <input  name="img3" type="file" class="form-control white-input" id="inputPrice">
+                         </div>
                      
                         <div class="form-group">
                             <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>

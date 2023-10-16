@@ -53,6 +53,9 @@ class ServicesDashController extends Controller
             'discountId' => 'required',
             // 'price' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img3' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             'price' => 'required|numeric',
 
@@ -77,6 +80,24 @@ class ServicesDashController extends Controller
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
             $image->move($destinationPath, $profileImage);
             $input['img'] = "$profileImage";
+        }
+        if ($image1 = $request->file('img1')) {
+            $destinationPath = 'images/';
+            $profileImage1 = date('YmddHis') . "." . $image1->getClientOriginalExtension();
+            $image1->move($destinationPath, $profileImage1);
+            $input['img1'] = "$profileImage1";
+        }
+        if ($image2 = $request->file('img2')) {
+            $destinationPath = 'images/';
+            $profileImage2 = date('YmdHHis') . "." . $image2->getClientOriginalExtension();
+            $image2->move($destinationPath, $profileImage2);
+            $input['img2'] = "$profileImage2";
+        }
+        if ($image3 = $request->file('img3')) {
+            $destinationPath = 'images/';
+            $profileImage3 = date('YmmdHis') . "." . $image3->getClientOriginalExtension();
+            $image3->move($destinationPath, $profileImage3);
+            $input['img3'] = "$profileImage3";
         }
 
         Product::create($input);
@@ -145,6 +166,9 @@ class ServicesDashController extends Controller
             'discountId' => 'required',
             // 'price' => 'required',
             'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img1' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img2' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'img3' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
             'price' => 'required|numeric',
 
@@ -171,6 +195,30 @@ class ServicesDashController extends Controller
             $input['img'] = "$profileImage";
         } else {
             $input['img'] = $service->main_picture;
+        }
+        if ($image1 = $request->file('img1')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmddHis') . "." . $image1->getClientOriginalExtension();
+            $image1->move($destinationPath, $profileImage);
+            $input['img1'] = "$profileImage";
+        } else {
+            $input['img1'] = $service->main_picture;
+        }
+        if ($image2 = $request->file('img2')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHHis') . "." . $image2->getClientOriginalExtension();
+            $image2->move($destinationPath, $profileImage);
+            $input['img2'] = "$profileImage";
+        } else {
+            $input['img2'] = $service->main_picture;
+        }
+        if ($image3 = $request->file('img3')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmmdHis') . "." . $image3->getClientOriginalExtension();
+            $image3->move($destinationPath, $profileImage);
+            $input['img3'] = "$profileImage";
+        } else {
+            $input['img3'] = $service->main_picture;
         }
 
         $service->update($input);

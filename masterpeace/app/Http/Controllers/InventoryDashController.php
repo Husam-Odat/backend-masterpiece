@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use App\Models\ProductCategory;
+use App\Models\ProductInventory;
+// use App\Models\ProductCategory;
 use App\Models\Volnteer;
 use Illuminate\Http\Request;
 
-class CategoryDashController extends Controller
+class InventoryDashController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +19,9 @@ class CategoryDashController extends Controller
     public function index()
     {
 
-        $allcat = ProductCategory::all();
+        $allinv = ProductInventory::all();
         // dd($allcat);
-        return view('Dash.category', compact('allcat'));
+        return view('Dash.inventory', compact('allinv'));
     }
 
     /**
@@ -30,7 +31,7 @@ class CategoryDashController extends Controller
      */
     public function create()
     {
-        return view('Dash.addCategory');
+        return view('Dash.addinventory');
     }
 
     /**
@@ -44,33 +45,33 @@ class CategoryDashController extends Controller
 
         $request->validate([
             'name' => 'required |max:30',
-            'description' => 'required |max:300',
+            'quantity' => 'required |max:300',
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         $input = $request->all();
 
-        if ($image = $request->file('image')) {
-            $destinationPath = 'images/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['img'] = "$profileImage";
-        }
+        // if ($image = $request->file('image')) {
+        //     $destinationPath = 'images/';
+        //     $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+        //     $image->move($destinationPath, $profileImage);
+        //     $input['img'] = "$profileImage";
+        // }
 
-        ProductCategory::create($input);
+        ProductInventory::create($input);
 
-        return redirect()->route('category.index')
-            ->with('success', 'Category created successfully.');
+        return redirect()->route('inventory.index')
+            ->with('success', 'inventory created successfully.');
 
-        // Category::create([
-        //     'id' => $request->id,
-        //     'name' => $request->name,
-        //     'description' => $request->description,
-        //     'image'=>'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
-        // ]);
+        ProductInventory::create([
+            'id' => $request->id,
+            'name' => $request->name,
+            'description' => $request->quantity,
+            // 'image'=>'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
+        ]);
 
-        // return redirect()->route('category.index')->with(['success' => 'created successfully
-        // ']);
+        return redirect()->route('inventory.index')->with(['success' => 'created successfully
+        ']);
     }
 
     /**
@@ -79,10 +80,10 @@ class CategoryDashController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(ProductCategory $category1, $id)
+    public function show(ProductInventory $category1, $id)
     {
-        $category1  = ProductCategory::findOrFail($id);
-        return view('Dash.showcat')->with('category', $category1);
+        $category1  = ProductInventory::findOrFail($id);
+        return view('Dash.showinv')->with('category', $category1);
     }
 
     /**
@@ -91,10 +92,10 @@ class CategoryDashController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(ProductCategory $category)
+    public function edit(ProductInventory $inventory)
     {
         // $data =Category::find($id);
-        return view('Dash.editcatg', compact('category'));
+        return view('Dash.editinventory', compact('inventory'));
     }
 
     /**
@@ -104,11 +105,11 @@ class CategoryDashController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, ProductCategory $category)
+    public function update(Request $request, ProductInventory $inventory)
     {
         $request->validate([
             'name' => 'required |max:30',
-            'description' => 'required |max:300',
+            'quantity' => 'required |max:300',
             // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
@@ -121,13 +122,13 @@ class CategoryDashController extends Controller
             $image->move($destinationPath, $profileImage);
             $input['img'] = "$profileImage";
         } else {
-            $input['img'] = $category->image;
+            $input['img'] = $inventory->image;
         }
 
-        $category->update($input);
+        $inventory->update($input);
 
-        return redirect()->route('category.index')
-            ->with('success', 'Category updated successfully');
+        return redirect()->route('inventory.index')
+            ->with('success', 'inventory updated successfully');
 
         // $data['name'] = $request->name;
         // $data['description'] = $request->description;
@@ -150,10 +151,10 @@ class CategoryDashController extends Controller
         if ($products->count() != 0) {;
 
             // Redirect to the 'category.index' route
-            return redirect()->route('category.index')->with(['cancel' => 'You have items under this category']);
+            return redirect()->route('inventory.index')->with(['cancel' => 'You have items under this category']);
         }
-        ProductCategory::destroy($id);
+        ProductInventory::destroy($id);
 
-        return redirect()->route('category.index')->with(['deleted' => 'Deleted successfully']);
+        return redirect()->route('inventory.index')->with(['deleted' => 'Deleted successfully']);
     }
 }

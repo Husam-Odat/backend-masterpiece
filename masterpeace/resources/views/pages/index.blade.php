@@ -272,30 +272,39 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-3">
+                    {{-- <div class="col-md-3">
                         <div class="banner_item align-items-center"
                             style="background-image:url(images/banner_1.1.png)">
                             <div class="banner_category">
                                 <a href="allproducts.html">AI art</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                    </div> --}}
+                    {{-- <div class="col-md-3">
                         <div class="banner_item align-items-center"
                             style="background-image:url(images/banner_2.1.png)">
                             <div class="banner_category">
                                 <a href="allproducts.html">Paintings</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-3">
+                    </div> --}}
+                    <form action="{{ route('create') }}" method="post">
+                        @csrf
+                        <button type="submit">submit</button>
+                    </form>
+                     @foreach ($categories as $categories)
+                               
+                           
+                    <div class="col-md-3 mb-4">
                         <div class="banner_item align-items-center"
-                            style="background-image:url(images/banner_3.1.png)">
+                            style="background-image:url(images/{{ $categories->img }})">
                             <div class="banner_category">
-                                <a href="allproducts.html">Home & Living</a>
+                                <a href="/pages.allproducts/{{ $categories->id }}">{{ $categories->name }}</a>
                             </div>
                         </div>
                     </div>
+                     @endforeach
+
                     <div class="col-md-3">
                         <div class="banner_item align-items-center"
                             style="background-image:url(images/banner_4.1.png)">
@@ -304,10 +313,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                {{-- </div>
             </div>
             <div class="container" style="margin-top: 5%;">
-                <div class="row">
+                <div class="row"> --}}
                     <div class="col-md-3">
                         <div class="banner_item align-items-center"
                             style="background-image:url(images/banner_5.1.png)">
@@ -623,26 +632,25 @@
                             <div class="owl-carousel owl-theme product_slider">
 
                                 <!-- Slide 1 -->
-
+@foreach ($products as $product)
                                 <div class="owl-item product_slider_item">
                                     <div class="product-item">
                                         <div class="product discount">
                                             <div class="product_image">
-                                                <img src="images/product_slider_1.png" alt="">
+                                                <img src="images/{{ $product->img }}" alt="">
                                             </div>
                                             <div class="favorite favorite_left"></div>
                                             <div
                                                 class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                                                 <span>-$20</span></div>
                                             <div class="product_info">
-                                                <h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP
-                                                        Digital Camera (Silver)</a></h6>
-                                                <div class="product_price">$520.00<span>$590.00</span></div>
+                                                <h6 class="product_name"><a href="single.html">{{ $product->name }}</a></h6>
+                                                <div class="product_price">{{ $product->price }}<span>$590.00</span></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
+@endforeach
                                 <!-- Slide 2 -->
 
                                 <div class="owl-item product_slider_item">

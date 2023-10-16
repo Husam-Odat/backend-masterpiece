@@ -87,7 +87,7 @@
                     <div class="widget widget-link">
                         <ul>
                             <div class="logo logo-footer">
-                                <a href="index.html"><img src="images/logoo.png" alt="image" width="107"
+                                <a href="index.html"><img src={{ asset("images/logoo.png") }} alt="image" width="107"
                                         height="75"></a>
                             </div>
                             <!-- <li><a href="about">About Us</a></li>

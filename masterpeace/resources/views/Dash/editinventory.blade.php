@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-    Edit catgories
+    Edit inventory
  @endsection
 
  @section('content')
@@ -20,16 +20,16 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container" style="margin:auto">
                 <div class="signup-content">
-                    <form method="post" action="{{route('inventory.update',$category->id)}}" enctype="multipart/form-data"  id="signup-form"  class="signup-form">
+                    <form method="post" action="{{route('inventory.update',$inventory->id)}}" enctype="multipart/form-data"  id="signup-form"  class="signup-form">
                         @method('PUT')
                        @csrf
-                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update Category</h2>
+                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update inventory</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="name" value="{{ $category->name }}" id="name" placeholder="volunteer name"/>
+                            <input type="text" class="form-input" name="name" value="{{ $inventory->name }}" id="name" placeholder="name"/>
                             <span style="color:red">@error('name'){{ $message }} @enderror</span><br><br>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="quantity" value="{{ $category->quantity }}" id="quantity" placeholder="quantity"/>
+                            <input type="text" class="form-input" name="quantity" value="{{ $inventory->quantity }}" id="quantity" placeholder="quantity"/>
                             <span style="color:red">@error('quantity'){{ $message }} @enderror</span><br><br>
                         </div>
                        
@@ -39,14 +39,14 @@
 
                         </div> --}}
                       
-                        <div class="form-group">	
-                            <input type="text" class="form-input" name="description" value="{{ $category->description}}" placeholder="Description"/>
+                        {{-- <div class="form-group">	
+                            <input type="text" class="form-input" name="description" value="{{ $inventory->description}}" placeholder="Description"/>
                           
-                        </div>
-                        <div class="form-group">	
-                            <input type="text" class="form-input" name="price" value="{{ $category->price}}" placeholder="price"/>
+                        </div> --}}
+                        {{-- <div class="form-group">	
+                            <input type="text" class="form-input" name="price" value="{{ $inventory->price}}" placeholder="price"/>
                           
-                        </div>
+                        </div> --}}
                      
                         
                         {{-- <div class="form-group">	

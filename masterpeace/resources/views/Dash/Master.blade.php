@@ -86,6 +86,12 @@
                             class="fa fa-tachometer-alt me-2"  ></i>Dashboard</a> --}}
                     <a href="category" class="nav-item nav-link contentmaster" ><i
                             class="fas fa-table me-2"></i>Category</a>
+                    <a href="inventory" class="nav-item nav-link contentmaster" ><i
+                            class="fas fa-table me-2"></i>inventory</a>
+                    <a href="discount" class="nav-item nav-link contentmaster" ><i
+                            class="fas fa-table me-2"></i>discount</a>
+                    <a href="item" class="nav-item nav-link contentmaster" ><i
+                            class="fas fa-table me-2"></i>Orders</a>
 
 
                     <div class="nav-item dropdown">

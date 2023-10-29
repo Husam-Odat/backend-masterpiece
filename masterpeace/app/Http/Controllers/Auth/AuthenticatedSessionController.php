@@ -38,9 +38,11 @@ class AuthenticatedSessionController extends Controller
 
             foreach ($sessionCart as $item) {
                 cart::create([
+                
                     'productId' => $item['productId'],
                     'userId' => auth()->user()->id,
-                    'quantity' => $item['quantity']
+                    'quantity' => $item['quantity'],
+                    'total' => $item['productId']* $item['quantity'],
                 ]);
             }
         }

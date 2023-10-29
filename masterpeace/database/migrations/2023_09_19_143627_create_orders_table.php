@@ -25,7 +25,7 @@ return new class extends Migration
             // $table->unsignedBigInteger('shipmentId');
             $table->foreignId('shipmentId')->constrained('shipments')->onDelete('cascade')->onUpdate('cascade');
             // $table->integer('orderProduct_Id');
-            $table->foreignId('orderProduct_Id')->constrained('order_products')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreignId('orderProductId')->constrained('orderproducts')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
 

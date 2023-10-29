@@ -11,23 +11,23 @@ class Product extends Model
 
     public function productcategory()
     {
-        $this->hasMany(ProductCategory::class, 'id', 'product_id');
+       return $this->hasMany(ProductCategory::class, 'id', 'productId');
     }
     public function productinventory()
     {
-        $this->hasMany(ProductInventory::class, 'id', 'product_id');
+      return  $this->hasMany(ProductInventory::class, 'id', 'productId');
     }
     public function review()
     {
-        $this->hasMany(Review::class, 'id', 'product_id');
+       return $this->hasMany(Review::class, 'id', 'productId');
     }
-    public function orderproduct()
-    {
-        $this->hasMany(OrderProduct::class, 'id', 'product_id');
-    }
+    // public function orderproduct()
+    // {
+    //     $this->hasMany(OrderProduct::class, 'id', 'product_id');
+    // }
     public function discount()
     {
-        $this->hasMany(Discount::class, 'id', 'product_id');
+       return $this->hasMany(Discount::class, 'id', 'productId');
     }
     public function cart()
     {
@@ -35,7 +35,7 @@ class Product extends Model
     }
     public function wishlist()
     {
-        $this->hasMany(WishList::class, 'id', 'product_id');
+       return $this->hasMany(WishList::class, 'id', 'productId');
     }
 
     protected $fillable = [
@@ -54,4 +54,9 @@ class Product extends Model
         'weight'
 
     ];
+
+    public function orderProduct()
+    {
+       return $this->hasMany(OrderProduct::class,'id', 'productId');
+    }
 }

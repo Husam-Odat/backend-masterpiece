@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Models\Order;
+use App\Models\OrderProduct;
 
 class ProfileController extends Controller
 {
@@ -19,8 +21,34 @@ class ProfileController extends Controller
         return view('profile.edit', [
             'user' => $request->user(),
         ]);
+//         $userId = auth()->user()->id;
+        
+      
+        
+//         $orders = Order::where('userId', $userId)->get();
+//         // dd($orders);
+//         $orderItems = [];
+       
+// // dd($orderItems);
+//         foreach ($orders as $item) {
+//             $orderItems[] = OrderProduct::where('orderId', $item->id)
+//                 ->with('product')
+//                 ->get();
+//         }
+//         // dd($orderItems);
+
+//         return view('pages.yousef', [
+//             'user' => $request->user(),
+//             'orderItems' => $orderItems,
+//             'orders' => $orders,
+//         ]);
+    
     }
 
+//     select users.name , orders.total ,products.name , products.price ,order_products.quantity from orders
+// join order_products on order_products.orderId = orders.id
+// join products on order_products.productId = products.id
+// join users on users.id = orders.userId
     /**
      * Update the user's profile information.
      */

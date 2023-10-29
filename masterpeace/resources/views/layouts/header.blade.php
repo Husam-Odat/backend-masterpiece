@@ -245,7 +245,7 @@
                             </div>
                             <nav class="navbar">
                                 <ul class="navbar_menu">
-                                    <li><a href="{{ url('/index') }}">home</a></li>
+                                    <li><a href="{{ url('/') }}">home</a></li>
                                     <li><a href="{{ url('/pages.allproducts/1') }}">shop</a></li>
 
                                     <li><a href="{{ url('/about') }}">About</a></li>

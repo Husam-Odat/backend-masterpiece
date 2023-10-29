@@ -288,10 +288,10 @@
                             </div>
                         </div>
                     </div> --}}
-                    <form action="{{ route('create') }}" method="post">
+                    {{-- <form action="{{ route('create') }}" method="post">
                         @csrf
                         <button type="submit">submit</button>
-                    </form>
+                    </form> --}}
                      @foreach ($categories as $categories)
                                
                            
@@ -305,19 +305,19 @@
                     </div>
                      @endforeach
 
-                    <div class="col-md-3">
+                    {{-- <div class="col-md-3">
                         <div class="banner_item align-items-center"
                             style="background-image:url(images/banner_4.1.png)">
                             <div class="banner_category">
                                 <a href="allproducts.html">Collectibles</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 {{-- </div>
             </div>
             <div class="container" style="margin-top: 5%;">
                 <div class="row"> --}}
-                    <div class="col-md-3">
+                    {{-- <div class="col-md-3">
                         <div class="banner_item align-items-center"
                             style="background-image:url(images/banner_5.1.png)">
                             <div class="banner_category">
@@ -348,7 +348,7 @@
                                 <a href="allproducts.html">Clothing</a>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>

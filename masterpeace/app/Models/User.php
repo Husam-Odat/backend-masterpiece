@@ -14,35 +14,35 @@ class User extends Authenticatable
 
     public function useraddress()
     {
-        $this->hasMany(UserAddress::class, 'id', 'user_id');
+       return $this->hasMany(UserAddress::class, 'id', 'userId');
     }
     public function userpayment()
     {
-        $this->hasMany(UserPayment::class, 'id', 'user_id');
+       return $this->hasMany(UserPayment::class, 'id', 'userId');
     }
     public function payment()
     {
-        $this->hasMany(Payment::class, 'id', 'user_id');
+       return $this->hasMany(Payment::class, 'id', 'userId');
     }
     public function shipment()
     {
-        $this->hasMany(Shipment::class, 'id', 'user_id');
+       return $this->hasMany(Shipment::class, 'id', 'userId');
     }
     public function review()
     {
-        $this->hasMany(Review::class, 'id', 'user_id');
+       return $this->hasMany(Review::class, 'id', 'userId');
     }
     public function wishlist()
     {
-        $this->hasMany(WishList::class, 'id', 'user_id');
+       return $this->hasMany(WishList::class, 'id', 'userId');
     }
     public function sessioncart()
     {
-        $this->hasMany(SessionCart::class, 'id', 'user_id');
+       return $this->hasMany(SessionCart::class, 'id', 'userId');
     }
     public function order()
     {
-        $this->hasMany(Order::class, 'id', 'user_id');
+       return $this->hasMany(Order::class, 'id', 'userId');
     }
 
     /**
@@ -51,7 +51,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'username',
+        // 'username',
         'name',
         'lastName',
         'phone',
@@ -60,6 +60,7 @@ class User extends Authenticatable
         'email',
         'password',
     ];
+   
 
     /**
      * The attributes that should be hidden for serialization.

@@ -230,12 +230,12 @@
 
                         <!-- Breadcrumbs -->
                         <!--
-                    <div class="breadcrumbs d-flex flex-row align-items-center">
-                     <ul>
-                      <li><a href="index.html">Home</a></li>
-                      <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Home & Living</a></li>
-                     </ul>
-                    </div> -->
+                        <div class="breadcrumbs d-flex flex-row align-items-center">
+                         <ul>
+                          <li><a href="index.html">Home</a></li>
+                          <li class="active"><a href="index.html"><i class="fa fa-angle-right" aria-hidden="true"></i>Home & Living</a></li>
+                         </ul>
+                        </div> -->
 
                         <!-- SubHeader =============================================== -->
                         <section class="parallax-window" id="short" data-parallax="scroll"
@@ -354,43 +354,43 @@
                                         </div>
                                         <hr>
                                         <!-- <div class="row">
-                 <div class="col-md-6 col-sm-6">
-                 <div class="form-group">
-                 <label>Delivery Day</label>
-                 <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
-                 <option value="" selected>Select day</option>
-                 <option value="Today">Today</option>
-                 <option value="Tomorrow">Tomorrow</option>
-                 </select>
-                 </div>
-                 </div>
-                 <div class="col-md-6 col-sm-6">
-                 <div class="form-group">
-                 <label>Delivery time</label>
-                 <select class="form-control" name="delivery_schedule_time" id="delivery_schedule_time">
-                 <option value="" selected>Select time</option>
-                 <option value="11.30am">11.30am</option>
-                 <option value="11.45am">11.45am</option>
-                 <option value="12.15am">12.15am</option>
-                 <option value="12.30am">12.30am</option>
-                 <option value="12.45am">12.45am</option>
-                 <option value="01.00pm">01.00pm</option>
-                 <option value="01.15pm">01.15pm</option>
-                 <option value="01.30pm">01.30pm</option>
-                 <option value="01.45pm">01.45pm</option>
-                 <option value="02.00pm">02.00pm</option>
-                 <option value="07.00pm">07.00pm</option>
-                 <option value="07.15pm">07.15pm</option>
-                 <option value="07.30pm">07.30pm</option>
-                 <option value="07.45pm">07.45pm</option>
-                 <option value="08.00pm">08.00pm</option>
-                 <option value="08.15pm">08.15pm</option>
-                 <option value="08.30pm">08.30pm</option>
-                 <option value="08.45pm">08.45pm</option>
-                 </select>
-                 </div>
-                 </div>
-                 </div> -->
+                     <div class="col-md-6 col-sm-6">
+                     <div class="form-group">
+                     <label>Delivery Day</label>
+                     <select class="form-control" name="delivery_schedule_day" id="delivery_schedule_day">
+                     <option value="" selected>Select day</option>
+                     <option value="Today">Today</option>
+                     <option value="Tomorrow">Tomorrow</option>
+                     </select>
+                     </div>
+                     </div>
+                     <div class="col-md-6 col-sm-6">
+                     <div class="form-group">
+                     <label>Delivery time</label>
+                     <select class="form-control" name="delivery_schedule_time" id="delivery_schedule_time">
+                     <option value="" selected>Select time</option>
+                     <option value="11.30am">11.30am</option>
+                     <option value="11.45am">11.45am</option>
+                     <option value="12.15am">12.15am</option>
+                     <option value="12.30am">12.30am</option>
+                     <option value="12.45am">12.45am</option>
+                     <option value="01.00pm">01.00pm</option>
+                     <option value="01.15pm">01.15pm</option>
+                     <option value="01.30pm">01.30pm</option>
+                     <option value="01.45pm">01.45pm</option>
+                     <option value="02.00pm">02.00pm</option>
+                     <option value="07.00pm">07.00pm</option>
+                     <option value="07.15pm">07.15pm</option>
+                     <option value="07.30pm">07.30pm</option>
+                     <option value="07.45pm">07.45pm</option>
+                     <option value="08.00pm">08.00pm</option>
+                     <option value="08.15pm">08.15pm</option>
+                     <option value="08.30pm">08.30pm</option>
+                     <option value="08.45pm">08.45pm</option>
+                     </select>
+                     </div>
+                     </div>
+                     </div> -->
                                         <!-- <hr> -->
                                         <div class="row">
                                             <div class="col-md-12">
@@ -487,7 +487,9 @@
                                                                     </div>
                                                                 </td>
                                                                 <td class="total">
-                                                                    {{ $cartItem['quantity'] * (isset($cartItem->product) ? $cartItem->product->price : $cartItem['price']) }}
+                                                             
+                                                                    {{-- {{$total_price= (isset($cartItem->product) ?$cartItem['quantity'] * $cartItem->product->price : $cartItem['price']) }} --}}
+                                                                    {{$total_price= (isset($cartItem->quantity) ?$cartItem->product->quantity * $cartItem->product->price : $cartItem['price']) }}
                                                                 </td>
                                                             </tr><!-- END TR-->
                                                             {{-- @endif --}}
@@ -558,14 +560,14 @@
                                         {{-- ========================add chatgpt========================== --}}
                                         <hr>
                                         <!-- <div class="row" id="options_2">
-                                            <div class="col-xl-6 col-md-12 col-sm-12 col-6">
-                                                <label><input type="radio" value="" checked name="option_2" class="icheck">Delivery</label>
+                                                <div class="col-xl-6 col-md-12 col-sm-12 col-6">
+                                                    <label><input type="radio" value="" checked name="option_2" class="icheck">Delivery</label>
+                                                </div>
+                                                <div class="col-xl-6 col-md-12 col-sm-12 col-6">
+                                                    <label><input type="radio" value="" name="option_2" class="icheck">Take Away</label>
+                                                </div>
                                             </div>
-                                            <div class="col-xl-6 col-md-12 col-sm-12 col-6">
-                                                <label><input type="radio" value="" name="option_2" class="icheck">Take Away</label>
-                                            </div>
-                                        </div>
-                                        <hr> -->
+                                            <hr> -->
                                         <table class="table table_summary">
                                             <tbody>
                                                 <tr>
@@ -580,14 +582,16 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="total">
-                                                        TOTAL <span class="float-right">$2,610</span>
+                                                        TOTAL <span class="float-right"></span>
                                                     </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                         <hr>
-                                        <form action="{{ route('create') }}" method="post">
+                                        <form action="{{ route('paypal') }}" method="post">
                                             @csrf
+                                            
+                                            {{-- <input type="text" value="{{$cartItem['quantity'] * $cartItem->product->price}}" name='price'hidden> --}}
                                             <button class="btn_full" type="submit">Order now</button>
                                         </form>
                                         {{-- <a class="btn_full" href="cart2.html">Order now</a> --}}

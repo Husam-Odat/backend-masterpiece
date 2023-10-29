@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\OrderProduct;
 use App\Models\Order;
 use App\Models\Cart;
-use App\Models\OrderProduct;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,7 +17,10 @@ class OrderController extends Controller
 
     public function create(Request $request)
     {
-
+if (Auth::user() == null) {  return redirect('/loginn');           
+        }
+        else{
+    // dd(Auth::user());
         $id = Auth::user()->id;
         $cartItems = Cart::where('userId', $id)->get();
         $total = 0;
@@ -37,7 +41,7 @@ class OrderController extends Controller
 
             ]);
         }
-
+        }
         // dd($order->id);
 
         // if ($cart) {

@@ -19,6 +19,7 @@ return new class extends Migration
             // $table->unsignedBigInteger('productId');
             $table->foreignId('productId')->constrained('products')->onDelete('RESTRICT')->onUpdate('cascade');
             $table->integer('quantity');
+            $table->float('price')->nullable();
             // $table->timestamp('created_at')->nullable();
             // $table->timestamp('modified_at')->nullable();
             $table->timestamps();

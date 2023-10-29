@@ -44,7 +44,8 @@ class CartController extends Controller
 
         // $coupon = coupons::where('couponName', $request->coupon)->first();
 
-        if ($cart != null
+        if (
+            $cart != null
         ) {
             $total = 0;
 
@@ -57,16 +58,17 @@ class CartController extends Controller
         } else {
             $total = 0;
         }
-        
+
         // $state = Str::lower($request->state);
         // dd($request->state);
 
         // $delivery = ($request->state === 'amman') ? 3 : 1;
         // return view('pages.cart2', compact('cart', 'total'));
+        // dd($cart);
         return view('pages.cart', compact('cart', 'total'));
 
         // return view('pages.checkout' , compact('cart', 'total'));
-        
+
         // return [
         //     view('pages.cart2', compact('cart', 'total')),
         //     view('pages.cart', compact('cart', 'total')),
@@ -79,68 +81,68 @@ class CartController extends Controller
         //     'checkoutView' => view('pages.checkout', compact('cart', 'total')),
         // ]);
     }
-     
-     
-     // ===================old====================
+
+
+    // ===================old====================
 
 
 
     // public function index()
     // {
 
-        
+
     //     $cart = session('cart', []);
-        
+
     //     // dd($cart);
     //     // Display the cart contents and total
     //     return view('pages.cart', ['cart' => $cart]);
-        
+
     // }
 
-    
-// public function addToCart(Request $request)
-//     {
-//         // Session::forget('cart');
-//         $productId = $request->input('product_id');
-//         // $productName = $request->input('product_name');
-//         $quantity = $request->input('quantity');
 
-//         $cart = session('cart', []);
+    // public function addToCart(Request $request)
+    //     {
+    //         // Session::forget('cart');
+    //         $productId = $request->input('product_id');
+    //         // $productName = $request->input('product_name');
+    //         $quantity = $request->input('quantity');
 
-//         if (isset($cart[$productId])) {
-//             $cart[$productId] += $quantity;
-//         } else {
-//             $cart[$productId] = $quantity;
-//         }
+    //         $cart = session('cart', []);
 
-//         session(['cart' => $cart]);
+    //         if (isset($cart[$productId])) {
+    //             $cart[$productId] += $quantity;
+    //         } else {
+    //             $cart[$productId] = $quantity;
+    //         }
 
-//         return redirect()->route('pages.cart.index');
-//     }
+    //         session(['cart' => $cart]);
 
-//     public function removeFromCart(Request $request)
-//     {
-//         $productId = $request->input('product_id');
+    //         return redirect()->route('pages.cart.index');
+    //     }
 
-//         $cart = session('cart', []);
+    //     public function removeFromCart(Request $request)
+    //     {
+    //         $productId = $request->input('product_id');
 
-//         if (isset($cart[$productId])) {
-//             unset($cart[$productId]);
-//         }
+    //         $cart = session('cart', []);
 
-//         session(['cart' => $cart]);
+    //         if (isset($cart[$productId])) {
+    //             unset($cart[$productId]);
+    //         }
 
-//         return redirect()->route('pages.cart.index');
-//     }
+    //         session(['cart' => $cart]);
 
-//     public function clearCart()
-//     {
-//         session(['cart' => []]);
+    //         return redirect()->route('pages.cart.index');
+    //     }
 
-//         return redirect()->route('pages.cart.index');
-//     }
+    //     public function clearCart()
+    //     {
+    //         session(['cart' => []]);
 
-// ===================old=======================
+    //         return redirect()->route('pages.cart.index');
+    //     }
+
+    // ===================old=======================
 
     public function store(Request $request, $id)
     {
@@ -166,6 +168,7 @@ class CartController extends Controller
                     'userId' => $iduser,
                     'productId' => $productId,
                     'quantity' => $quantity
+
                 ]);
             }
         } else {

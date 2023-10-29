@@ -12,6 +12,7 @@ use App\Http\Controllers\VolnteeritemDashhhController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
+use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ProductController;
 use App\Models\Order;
 use App\Models\OrderProduct;
@@ -43,13 +44,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
-Route::get('/', [ProductCategoryController::class, 'indexhome']);
+Route::get('/', [ProductCategoryController::class, 'indexhome'])->name('home');
 
-// Route::get('/', function () {
-//     return view('pages.index');
-// });
+
 
 Route::get('/cart2', function () {
     return view('pages.cart2');
@@ -73,10 +72,13 @@ Route::get('/contact', function () {
 Route::get('/about', function () {
     return view('pages.about');
 });
-
-Route::get('/loginn', function () {
-    return view('pages.login');
+Route::get('/cartnew', function () {
+    return view('pages.cartnew');
 });
+
+// Route::get('/loginn', function () {
+//     return view('pages.login');
+// });
 Route::get('/login11', function () {
     return view('auth.login');
 });
@@ -117,7 +119,7 @@ Route::get('/add_user_dash', function () {
 
 // .....................................................cart sh >>>>>>>>>>>>>>>>>>>>>>>>
 // Route::get('/pages.cart','CartController@index')->name('pages.cart.index');
-Route::get('/pages.cart',[CartController::class, 'index'])->name('pages.cart.index');
+Route::get('/pages.cart', [CartController::class, 'index'])->name('pages.cart.index');
 // Route::get('/pages.cart2',[CartController::class, 'index'])->name('pages.cart2.index');
 // Route::post('/pages.cart/add', 'CartController@addToCart')->name('pages.cart.add');
 Route::post('/pages.cart/add', [CartController::class, 'addToCart'])->name('pages.cart.add');
@@ -179,8 +181,12 @@ Route::resource('adminprofile', PhotoController::class);
 
 
 
-Route::post('/test', [OrderController::class, 'create'])->name('create');
+Route::post('/', [OrderController::class, 'create'])->name('create');
 
 
 
 
+// ////////////////for paypal payment gateway//////////////////////////
+Route::post('paypal', [PaymentController::class, 'payment'])->name('paypal');
+Route::get('success', [PaymentController::class, 'success'])->name('payment.success');
+Route::get('cancel', [PaymentController::class, 'cancel'])->name('payment.cancel');

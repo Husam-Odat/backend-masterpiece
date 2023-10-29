@@ -11,7 +11,7 @@ class UserAddress extends Model
 
     public function useraddress()
     {
-        $this->belongsTo(User::class, 'id', 'user_id');
+       return $this->belongsTo(User::class, 'id', 'userId');
     }
     protected $fillable = [
         'addressLine1',

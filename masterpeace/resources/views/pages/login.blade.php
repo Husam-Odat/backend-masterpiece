@@ -202,8 +202,7 @@
                 <div class="container-fluid">
                     <div class="px-5 ms-xl-4">
                         <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
-                        <span class="h1 fw-bold mb-0"><a href="index.html"><img src="images/logoo.png"
-                                    style="height: 100px; width: ;" alt=""></a></span>
+                        <span class="h1 fw-bold mb-0"><a href="index.html"></a></span>
                     </div>
 
                     <div class="row">

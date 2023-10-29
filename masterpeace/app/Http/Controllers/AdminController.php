@@ -32,7 +32,7 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'username' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
+            // 'username' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'email' => 'required|email|unique:admins',
             // 'password' => [
@@ -44,7 +44,7 @@ class AdminController extends Controller
 
         $input = $request->all();
         Admin::create([
-            'username' => $request->username,
+            // 'username' => $request->username,
             'name' => $request->name,
             'lastName' => $request->lastName,
             'phone' => $request->phone,

@@ -54,12 +54,12 @@
 
                                 </div>
                                 {{-- <div class="form-outline mb-2">
-                                    <x-input-label for="name" :value="__('Name')" />
-                                    <x-text-input id="name" type="text" id="form2Example18"
-                                        class="form-control form-control-lg" :value="old('name')" required
-                                        autocomplete="name" />
+                                    <x-input-label for="username" :value="__('username')" />
+                                    <x-text-input id="username" type="text" id="form2Example18"
+                                        class="form-control form-control-lg" :value="old('username')" required
+                                        autocomplete="username" />
                                    
-                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
 
                                 </div> --}}
 

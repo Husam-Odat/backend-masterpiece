@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        
+
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('username')->unique();
+            $table->string('username')->unique()->nullable();
             $table->string('password');
             $table->string('name');
-            $table->string('lastName');
-            $table->bigInteger('phone');
+            $table->string('lastName')->nullable();
+            $table->bigInteger('phone')->nullable();
             $table->timestamp('modified_at')->nullable();
             $table->string('email')->unique();
             $table->text('img')->nullable();
@@ -28,8 +28,6 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
-
-        
     }
 
     /**

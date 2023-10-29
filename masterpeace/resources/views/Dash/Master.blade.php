@@ -62,7 +62,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar " style="background-color: white;">
                 <a href="index.html" class="navbar-brand mx-4 mb-3 ">
-                    <h1 class="contentmaster">Helpz</h1>
+                    <h1 class="contentmaster">Desinoo</h1>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -92,9 +92,11 @@
                             class="fas fa-table me-2"></i>discount</a>
                     <a href="item" class="nav-item nav-link contentmaster" ><i
                             class="fas fa-table me-2"></i>Orders</a>
+                    <a href="services" class="nav-item nav-link contentmaster" ><i
+                            class="fas fa-dollar-sign me-2"></i>Products</a>
 
 
-                    <div class="nav-item dropdown">
+                    {{-- <div class="nav-item dropdown">
                         <a href="category" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="fas fa-dollar-sign me-2"></i>Our offerings</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -105,7 +107,7 @@
                             <a href="medicine" class="dropdown-item contentmaster" ><i
                                     class="fas fa-medkit me-2"></i>Medicine</a>
                         </div>
-                    </div>
+                    </div> --}}
                     <a href="admin" class="nav-item nav-link contentmaster" ><i
                             class="fas fa-user-tie me-2"></i>Admin</a>
                     <a href="user" class="nav-item nav-link contentmaster" ><i
@@ -128,7 +130,7 @@
         <div class="content">
             <!-- Navbar Start -->
             <nav class="navbar navbar-expand sticky-top px-4 py-0"
-                style="background-color: rgba(165, 204, 247, 0.786);">
+                style="background-color: rgba(140, 144, 144, 0.786);">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-2">
                     <h2 class=" mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>

@@ -9,21 +9,31 @@ class Order extends Model
 {
     protected $fillable = [
         'userId',
-        
         'quantity',
         'total',
         'paymentId',
-        'orderProduct_Id',
+        'orderProductId',
         'shipmentId'
     ];
     use HasFactory;
+
+ 
+    public function user()
+    {
+      return  $this->belongsTo(User::class, 'id', 'userId');
+    }
     public function shipment()
     {
-        $this->hasMany(Shipment::class, 'id', 'shipment_id');
+       return $this->hasMany(Shipment::class, 'id', 'shipmentId');
     }
     public function payment()
     {
-        $this->hasMany(Payment::class, 'id', 'payment_id');
+       return $this->hasMany(Payment::class, 'id', 'paymentId');
     }
+    public function orderproducts()
+    {
+      return  $this->hasMany(OrderProduct::class, 'orderProductId','id');
+    }
+    
   
 }

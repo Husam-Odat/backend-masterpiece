@@ -32,21 +32,21 @@ class AuthenticatedSessionController extends Controller
 
 
         $sessionCart = session('cart');
-// ===================
+        // ===================
         if ($sessionCart != null) {
             cart::where('userId', auth()->user()->id)->delete();
 
             foreach ($sessionCart as $item) {
                 cart::create([
-                
+
                     'productId' => $item['productId'],
                     'userId' => auth()->user()->id,
                     'quantity' => $item['quantity'],
-                    'total' => $item['productId']* $item['quantity'],
+                    'total' => $item['price'] * $item['quantity'],
                 ]);
             }
         }
-// ===================
+        // ===================
 
 
         return redirect()->intended("/");

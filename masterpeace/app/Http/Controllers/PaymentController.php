@@ -22,46 +22,50 @@ class PaymentController extends Controller
 
     public function payment(Request $request)
     {
+        // $total = $request->cart->price;
         if (Auth::user() == null) {
             return redirect('/login');
         } else {
-        $user_id = $request->user_id;
-        try {
-            $provider = new PayPalClient;
-            $provider->setApiCredentials(config('paypal'));
-            $paypaltoken = $provider->getAccessToken();
+            $user_id = $request->user_id;
+            try {
+                $provider = new PayPalClient;
+                $provider->setApiCredentials(config('paypal'));
+                $paypaltoken = $provider->getAccessToken();
 
-            $response = $provider->createOrder([
-                "intent" => "CAPTURE",
-                "application_context" => [
-                    "return_url" => route('payment.success', compact('user_id')),
-                    "cancel_url" => route('payment.cancel'),
-                ],
-                "purchase_units" => [
-                    [
-                        "amount" => [
-                            'currency_code' => 'USD',
-                            "value" => $request->price,
+                $response = $provider->createOrder([
+                    "intent" => "CAPTURE",
+                    "application_context" => [
+                        "return_url" => route('payment.success', compact('user_id')),
+                        "cancel_url" => route('payment.cancel'),
+                    ],
+                    "purchase_units" => [
+                        [
+                            "amount" => [
+                                'currency_code' => 'USD',
+                                // "value" => $request->price,
+                                // "value" => $request->total_price,
+                                "value" => 3,
 
-                            // Make sure 'value' is used for the price
+                                // Make sure 'value' is used for the price
+
+                            ],
+
 
                         ],
-
-
                     ],
-                ],
-            ]);
+                ]);
 
-            foreach ($response['links'] as $link) {
-                if ($link['rel'] == "approve") {
-                    return redirect()->away($link['href']);
+                foreach ($response['links'] as $link) {
+                    if ($link['rel'] == "approve") {
+                        return redirect()->away($link['href']);
+                    }
                 }
+            } catch (\Exception $e) {
+                // Handle API request errors here, e.g., log the error message
+                return response()->json(['error' => $e->getMessage()], 500);
             }
-        } catch (\Exception $e) {
-            // Handle API request errors here, e.g., log the error message
-            return response()->json(['error' => $e->getMessage()], 500);
         }
-    }}
+    }
     public function success(Request $request)
     {
 
@@ -74,6 +78,7 @@ class PaymentController extends Controller
         // use carbon library
 
         if (isset($response['status']) && $response['status'] == "COMPLETED") {
+            // dd($response);
             $payment = Payment::insert([
                 // 'userId' => Auth()->user()->id,
                 // 'user_name' => $response['payment_source']['paypal']['name']['given_name'] . $response['payment_source']['paypal']['name']['surname'],
@@ -98,18 +103,22 @@ class PaymentController extends Controller
                 $cartItems = Cart::where('userId', $id)->get();
                 $total = 0;
                 foreach ($cartItems  as  $value) {
-                    $orederProduct = OrderProduct::create([
+
+                    $orderProduct = OrderProduct::create([
                         "productId" => $value['productId'],
                         "quantity" => $value['quantity'],
+                        "price" => $value['price'],
+
 
                     ]);
                     $total += $value['total'];
                     Order::create([
                         'userId' => $id,
                         'total' => $total,
-                        'paymentId' => $payment->id,
+                        'paymentId' => 25,
                         'shipmentId' => 1,
-                        'orderProductId' => $orederProduct->id,
+                        'orderProductId' => $orderProduct->id,
+                        // 'orderProductId' => 1,
 
 
                     ]);

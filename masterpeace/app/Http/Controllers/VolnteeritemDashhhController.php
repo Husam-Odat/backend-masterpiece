@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Volnteer;
 use App\Models\Volnteeritem;
 use App\Models\Product;
@@ -20,7 +21,7 @@ class VolnteeritemDashhhController extends Controller
 
 
         $user = DB::table('orders')
-            ->join('order_products', 'order_products.id', '=', 'orders.orderProduct_Id')
+            ->join('order_products', 'order_products.id', '=', 'orders.orderProductId')
             ->join('payments', 'payments.id', '=', 'orders.paymentId')
             ->join('shipments', 'shipments.id', '=', 'orders.shipmentId')
             ->join('users', 'users.id', '=', 'shipments.userId')
@@ -50,11 +51,11 @@ class VolnteeritemDashhhController extends Controller
         //     JOIN volnteeritems ON volnteers.id = volnteeritems.volunteer_id
         //     JOIN categories ON volnteers.category_id = categories.id
         //     JOIN users ON volnteeritems.user_id = users.id);
-    
+
         // dd($users);
-        return view("Dash.item")->with("users",$users);
+        return view("Dash.item")->with("users", $users);
     }
-    
+
 
     /**
      * Show the form for creating a new resource.
@@ -83,10 +84,10 @@ class VolnteeritemDashhhController extends Controller
      * @param  \App\Models\Volnteeritem  $volnteeritem
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteeritem $volnteeritem)
-    {
-        //
-    }
+    // public function show(Volnteeritem $volnteeritem)
+    // {
+    //     //
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -94,10 +95,10 @@ class VolnteeritemDashhhController extends Controller
      * @param  \App\Models\Volnteeritem  $volnteeritem
      * @return \Illuminate\Http\Response
      */
-    public function edit(Volnteeritem $volnteeritem)
-    {
-        //
-    }
+    // public function edit(Volnteeritem $volnteeritem)
+    // {
+    //     //
+    // }
 
     /**
      * Update the specified resource in storage.
@@ -106,10 +107,10 @@ class VolnteeritemDashhhController extends Controller
      * @param  \App\Models\Volnteeritem  $volnteeritem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Volnteeritem $volnteeritem)
-    {
-        //
-    }
+    // public function update(Request $request, Volnteeritem $volnteeritem)
+    // {
+    //     //
+    // }
 
     /**
      * Remove the specified resource from storage.
@@ -117,8 +118,8 @@ class VolnteeritemDashhhController extends Controller
      * @param  \App\Models\Volnteeritem  $volnteeritem
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Volnteeritem $volnteeritem)
-    {
-        //
-    }
+    // public function destroy(Volnteeritem $volnteeritem)
+    // {
+    //     //
+    // }
 }

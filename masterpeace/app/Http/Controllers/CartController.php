@@ -25,7 +25,7 @@ class CartController extends Controller
         if (auth()->user()) {
             $iduser = auth()->user()->id;
             $cart = Cart::where('userId', $iduser)->with('product')->get();
-
+            // dd($cart);
             // $cart = DB::table('carts')
             // ->where('userId', $iduser)
             // ->join('products', 'carts.productId', '=', 'products.id')
@@ -43,22 +43,41 @@ class CartController extends Controller
         }
 
         // $coupon = coupons::where('couponName', $request->coupon)->first();
+        //===============
 
+        // $total = 0;
+
+        // foreach ($cart as $cartItem) {
+        //     $price = 0;
+
+        //     if (isset($cartItem->product)) {
+        //         $price = $cartItem->product->price;
+        //     } elseif (isset($cartItem->price)) {
+        //         $price = $cartItem->price;
+        //     }
+
+        //     $total += $cartItem->quantity * $price;
+        // }
+        //=========================
         if (
             $cart != null
         ) {
             $total = 0;
 
             foreach ($cart as $cartItem) {
+                // dd($cart);
                 $total += $cartItem['quantity'] * (isset($cartItem->product) ? $cartItem->product->price : $cartItem['price']);
             };
             // if ($coupon) {
             //     $total = (float)($total - ($total * $coupon->discount));
             // }
+
+
+
         } else {
             $total = 0;
         }
-
+        //================
         // $state = Str::lower($request->state);
         // dd($request->state);
 
